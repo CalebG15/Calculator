@@ -35,31 +35,33 @@ public class CalculatorActivity extends AppCompatActivity {
             num2 = Integer.parseInt(secNum.getText().toString());
         }
 
-        int ans;
+        String ans;
         switch (operation) {
             case 2131230819:
                 // add
-                ans = num1 + num2;
+                ans = Integer.toString(num1 + num2);
                 break;
             case 2131230822:
                 // sub
-                ans = num1 - num2;
+                ans = Integer.toString(num1 - num2);
                 break;
             case 2131230821:
                 // mult
-                ans = num1 * num2;
+                ans = Integer.toString(num1 * num2);
                 break;
             case 2131230820:
                 //divide
-                ans = num1 / num2;
+                if (num2 != 0) {
+                ans = Integer.toString(num1 / num2);
+                } else {
+                    ans = "Error: Divide by 0";
+                }
                 break;
             default:
-                ans = 0;
+                ans = "0";
         }
 
-        goToActivity(Integer.toString(ans));
-        Log.i("INFO", Integer.toString(operation));
-        Log.i("INFO", Integer.toString(ans));
+        goToActivity(ans);
     }
 
     public void goToActivity(String s) {
